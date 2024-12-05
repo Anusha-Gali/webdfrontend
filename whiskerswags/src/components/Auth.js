@@ -23,7 +23,8 @@ const Auth = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const url = isLogin ? "/api/auth/login" : "/api/auth/register";
+     // const url = isLogin ? "/api/auth/login" : "/api/auth/register";
+      const url = `${process.env.REACT_APP_API_URL}${isLogin ? "/api/auth/login" : "/api/auth/register"}`;
       const response = await axios.post(url, form);
 
       const user = response.data.user;
